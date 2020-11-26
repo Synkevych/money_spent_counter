@@ -34,6 +34,8 @@ gem 'jbuilder', '~> 2.5'
 # Pagination library for Rails, Sinatra, Merb, DataMapper, and more
 gem 'will_paginate', '~> 3.1.0'
 
+gem 'bootstrap', '~> 4.3.1'
+
 # jQuery for materialize-sass UI plagin
 gem 'jquery-rails', '~> 4.4'
 

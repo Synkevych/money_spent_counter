@@ -6,4 +6,7 @@ class Invoice < ApplicationRecord
   validates :title, presence: true, length: { in: 1..80 }, uniqueness: true
   validates :category, presence: true, length: { in: 1..40 }
 
-end
+  # Set up the number of displayed Checklist items per page
+  self.per_page = 10
+
+end 
