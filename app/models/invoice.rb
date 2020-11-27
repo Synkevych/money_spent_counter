@@ -6,6 +6,8 @@ class Invoice < ApplicationRecord
   validates :title, presence: true, length: { in: 1..80 }, uniqueness: true
   validates :category, presence: true, length: { in: 1..40 }
 
+  scope :this_month, -> { where(created_at: Time.now.beginning_of_month..Time.now.end_of_month) }
+
   # Set up the number of displayed Checklist items per page
   self.per_page = 10
 

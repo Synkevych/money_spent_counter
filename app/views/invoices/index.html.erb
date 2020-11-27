@@ -1,5 +1,5 @@
 <div class="card mt-4 mx-auto">
-  <div class="card-body">
+  <div class="card-body mb-10">
     <h3 class="card-title text-center">You're Invoices</h3>
     <div class="text-right">
       <a class="btn btn-success" href="<%= new_invoice_path %>">Add new</a>
@@ -25,13 +25,23 @@
             <td><b><%= link_to invoice.title, invoice, title: "Click to show more information" %><b></td>
             <td><%= invoice.description %></td>
             <td><%= invoice.category %></td>
-            <td>$<%= invoice.amount %></td>
+            <td>$<%= invoice.amount.round %></td>
             <td><%= invoice.created_at.strftime("%B %d, %Y") %></td>
             <td><%= link_to 'Remove', invoice, method: :delete, data: { confirm: 'Are you sure?' } %></td>
           </tr>
         <% end %>
       </tbody>
     </table>
-    <div class="text-right"><%= will_paginate @invoices, previous_label: "Older", next_label: "Newer"%></div>
+    <table class="table" id="spending">
+      <tbody>
+        <tr>
+          <td>Spending:</td> 
+          <td>Year: $<%= count_year_spend %></td>
+          <td>Last Month: $<%= count_month_spend %></td>
+          <td>Showed Period: $<%= count_showed_spend %></td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="text-right"><%= will_paginate @invoices, class: "btn btn-info btn-sm"%></div>
   </div>
 </div>
