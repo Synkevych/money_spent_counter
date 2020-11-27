@@ -38,8 +38,9 @@ function copyTextToClipboard(text) {
   try {
     var successful = document.execCommand('copy');
     var msg = successful ? 'successful' : 'unsuccessful';
+    toastr.info('You ' + msg + " copy the url")
   } catch (err) {
-    console.log('Oops, unable to copy this url');
+    toastr.info('Oops, unable to copy this url');
   }
 
   document.body.removeChild(textArea);

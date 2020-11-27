@@ -1,4 +1,5 @@
 @import "bootstrap";
+@import "toastr";
 
 .footer{
   display: block;
@@ -12,4 +13,8 @@
     max-width: 680px;
     padding: 0 15px;
   };
+}
+
+#toast-container{
+  top: 4em;
 }
