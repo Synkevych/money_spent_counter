@@ -1,1 +1,15 @@
 @import "bootstrap";
+
+.footer{
+  display: block;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  line-height: 2em;
+  background-color: #f5f5f5;
+  .container {
+    width: auto;
+    max-width: 680px;
+    padding: 0 15px;
+  };
+}
