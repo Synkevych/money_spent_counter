@@ -23,6 +23,7 @@
 
   <p class="mx-auto">
     <% user_id = !user_signed_in? || current_user.id; if @invoice.user_id == user_id then %>
+    <button class="btn btn-success btn-sm" onclick="copyToClipboard()">Copy link</button>
     <%= link_to  "Delete", invoice_path(@invoice),
                 method: :delete,
                 data: { confirm: 'Are you sure?'},
