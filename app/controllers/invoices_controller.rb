@@ -1,6 +1,7 @@
 class InvoicesController < ApplicationController
   before_action :set_invoice!, only: [:show, :edit, :update, :destroy]
-
+  
+  # GET /invoices/
   def index
     @invoices = Invoice.all
       .order('created_at DESC')
@@ -11,10 +12,12 @@ class InvoicesController < ApplicationController
   def show
   end
 
+  # GET /invoices/new
   def new
     @invoice = Invoice.new
   end
 
+  # GET /invoices/1/edit
   def edit
   end
 

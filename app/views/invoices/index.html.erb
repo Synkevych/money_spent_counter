@@ -1,30 +1,37 @@
-<div class="card mt-4">
-  <div class="table-header">
-    <h5>You're Invoices</h5>
-    <div class="actions">
-      <a class="waves-effect btn teal lighten-2" href="<%= new_invoice_path %>">Add new</a>
+<div class="card mt-4 mx-auto">
+  <div class="card-body">
+    <h3 class="card-title text-center">You're Invoices</h3>
+    <div class="text-right">
+      <a class="btn btn-success" href="<%= new_invoice_path %>">Add new</a>
     </div>
-  </div>
-  <table class="table mt-4" id="articles">
-    <thead>
-      <tr role="row">
-        <th></th>
-        <th>Title</th>
-        <th>Action</th>
-      </tr>
-    </thead>
-    <tbody>
-      <% @invoices.each_with_index do | invoice, i| %>
-        <tr>
-          <td>
-            <b><%= get_row_number(@invoices.current_page, i) %><b>
-          </td> 
-          <td><b><%= link_to invoice.title, invoice, title: "Click to show more information" %><b></td>
-          <td><%= link_to 'Destroy', invoice, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    <table class="table mt-4" id="articles">
+      <thead>
+        <tr role="row">
+          <th></th>
+          <th>Title</th>
+          <th>Description</th>
+          <th>Category</th>
+          <th>Amount</th>
+          <th>Date</th>
+          <th></th>
         </tr>
-      <% end %>
-    </tbody>
-  </table>
-  <div><%= get_pages_info(@invoices.current_page, @invoices.total_pages) %></div>
-  <div><%= will_paginate @invoices, previous_label: "Older", next_label: "Newer"%></div>
+      </thead>
+      <tbody>
+        <% @invoices.each_with_index do | invoice, i| %>
+          <tr>
+            <td>
+              <b><%= get_row_number(@invoices.current_page, i) %><b>
+            </td> 
+            <td><b><%= link_to invoice.title, invoice, title: "Click to show more information" %><b></td>
+            <td><%= invoice.description %></td>
+            <td><%= invoice.category %></td>
+            <td>$<%= invoice.amount %></td>
+            <td><%= invoice.created_at.strftime("%B %d, %Y") %></td>
+            <td><%= link_to 'Remove', invoice, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+    <div class="text-right"><%= will_paginate @invoices, previous_label: "Older", next_label: "Newer"%></div>
+  </div>
 </div>
