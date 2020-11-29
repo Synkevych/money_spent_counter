@@ -10,6 +10,8 @@ class Invoice < ApplicationRecord
 
   scope :available_for, -> (user) { where(user: user) }
 
+  scope :invoices_for_year, -> { where('extract(year from created_at) = ?', Time.now.strftime("%Y").to_i) }
+
   # Set up the number of displayed Checklist items per page
   self.per_page = 10
 
