@@ -38,12 +38,12 @@ class InvoicesController < ApplicationController
 
   # PATCH/PUT /invoices/1
   def update
-    respond_to do |format|
-      if @invoice.update(invoice_params)
-        format.html { redirect_to @invoice, flash: {success: 'Invoice was successfully updated.' }}
-      else
-        format.html { render :edit, flash: {error: @invoice.errors, status: :unprocessable_entity }}
-      end
+    if @invoice.update(invoice_params)
+      flash[:success] = 'Invoice was successfully updated.'
+      redirect_to invoice_path(@invoice)
+    else
+      flash[:error] = @invoice.errors.full_messages.join("\n")
+      render :edit, status: 422
     end
   end
 

@@ -1,13 +1,10 @@
 <%= form_with(model: @invoice, remote: true, class: "new-article-form") do |form| %>
-  <% if @invoice.errors.any? %>
-    <div class="modal fade" id="update_invoice_<%= @invoice.id %>"> 
-  <% end %>
   <% if user_signed_in? %>
     <%= form.hidden_field :user_id, value: current_user.id, class: "form-control"%>
     <% end %>
   <div class="card-body">
     <%= form.label :title %>
-    <%= form.text_field :title, value: default_title, class: "form-control" %>
+    <%= form.text_field :title, placeholder: default_title, class: "form-control" %>
   </div>
   <div class="card-body">
     <%= form.label :description %>
@@ -15,7 +12,7 @@
   </div>
   <div  class="card-body">
     <%= form.label :category %><br>
-    <%= form.select :category, options_for_select(Invoice::DEFAULT_CATEGORY),
+    <%= form.select :category, options_for_select(Invoice::DEFAULT_CATEGORY, form.object.category),
         {include_blank: true},
         required: true, class: 'custom-select' %>
   </div>
