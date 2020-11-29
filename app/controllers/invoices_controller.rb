@@ -29,7 +29,7 @@ class InvoicesController < ApplicationController
     @invoice = Invoice.new(invoice_params)
     if @invoice.save
       flash[:success] = 'Invoice was successfully created.'
-      redirect_to invoice_path(@invoice)
+      redirect_to invoice_path(@invoice), status: 302
     else
       flash[:error] = @invoice.errors.full_messages.join("\n")
       render :new, status: 422
@@ -40,7 +40,7 @@ class InvoicesController < ApplicationController
   def update
     if @invoice.update(invoice_params)
       flash[:success] = 'Invoice was successfully updated.'
-      redirect_to invoice_path(@invoice)
+      redirect_to invoice_path(@invoice), status: 302
     else
       flash[:error] = @invoice.errors.full_messages.join("\n")
       render :edit, status: 422

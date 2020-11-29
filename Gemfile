@@ -59,7 +59,30 @@ group :development do
   gem 'spring-watcher-listen', '~> 2.0.0'
 end
 
-group :test do
+group :test do 
+   # rspec-rails is a testing framework for Rails 5+
+  gem 'rspec-rails', '~> 4.0', '>= 4.0.1'
+  # factory_bot_rails provides integration between factory_bot and rails
+  gem 'factory_bot_rails', '~> 5.2'
+  # Shoulda Matchers provides RSpec-compatible one-liners to test common Rails functionality
+  gem 'shoulda-matchers', '~> 4.3'
+  # Extracting `assigns` and `assert_template` from ActionDispatch
+  gem 'rails-controller-testing', '~> 1.0', '>= 1.0.4'
+  # Nokogiri based 'have_tag' and 'with_tag' matchers for rspec 3
+  gem 'rspec-html-matchers', '~> 0.9.2'
+  # Set of matchers and helpers to allow you test your APIs responses like a pro.
+  gem 'rspec-json_expectations', '~> 1.2'
+  # Faker is used to easily generate fake data: names, addresses, phone numbers, etc.
+  gem 'faker', '~> 2.11'
+  # Code coverage for Ruby with a powerful configuration library and automatic merging of coverage across test suites
+  gem 'simplecov', '~> 0.18.5', require: false
+  # Simple console output formatter for SimpleCov
+  gem 'simplecov-console', '~> 0.7.2', require: false
+  # Hosted code coverage
+  gem 'codecov', '~> 0.1.17', require: false
+  # Strategies for cleaning databases in Ruby. Can be used to ensure a clean state for testing.
+  gem 'database_cleaner', '~> 1.8.5'
+  
   # Adds support for Capybara system testing and selenium driver
   gem 'capybara', '>= 2.15'
   gem 'selenium-webdriver'
