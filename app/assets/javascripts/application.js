@@ -15,7 +15,7 @@
 //= require activestorage
 //= require turbolinks
 //= require_tree .
-//= require toastr
+//= require toastr/toastr
 
 toastr.options = ({
  "closeButton": true,
@@ -24,7 +24,7 @@ toastr.options = ({
  "onclick": null,
  "showDuration": "300",
  "hideDuration": "100",
- "timeOut": "15000",
+ "timeOut": "4000",
  "extendedTimeOut": "1000",
  "showEasing": "swing",
  "hideEasing": "linear",

@@ -1,6 +1,4 @@
 {
-  "name": "money_spent_counter",
-  "private": true,
   "dependencies": {
     "jquery": "^3.5.1",
     "toastr": "^2.1.4"
