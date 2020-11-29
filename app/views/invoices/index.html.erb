@@ -4,31 +4,21 @@
     <div class="text-right">
       <a class="btn btn-success" href="<%= new_invoice_path %>">Add new</a>
     </div>
-    <table class="table mt-4" id="articles">
+    <table class="table mt-4" id="invoices_table">
       <thead>
         <tr role="row">
           <th></th>
-          <th>Title</th>
-          <th>Description</th>
-          <th>Category</th>
-          <th>Amount</th>
-          <th>Date</th>
+          <th class="sorting" data-name="title"><%= sortable "title" %></th>
+          <th class="sorting" data-name="description"><%= sortable "description" %></th>
+          <th class="sorting" data-name="category"><%= sortable "category" %></th>
+          <th class="sorting" data-name="amount"><%= sortable "amount" %></th>
+          <th class="sorting sorting_desc" data-name="created_at"><%= sortable "created_at" %></th>
           <th></th>
         </tr>
       </thead>
-      <tbody>
-        <% @invoices.each_with_index do | invoice, i| %>
-          <tr>
-            <td>
-              <b><%= get_row_number(@invoices.current_page, i) %><b>
-            </td> 
-            <td><b><%= link_to invoice.title, invoice, title: "Click to show more information" %><b></td>
-            <td><%= invoice.description %></td>
-            <td><%= invoice.category %></td>
-            <td>$<%= invoice.amount.round %></td>
-            <td><%= invoice.created_at.strftime("%B %d, %Y") %></td>
-            <td><%= link_to 'Remove', invoice, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-          </tr>
+      <tbody id="invoices">
+        <% @invoices.each_with_index do | invoice, i | %>
+            <%= render partial: "invoice_for_index", locals: {invoice: invoice, i: i} %>
         <% end %>
       </tbody>
     </table>
@@ -36,12 +26,12 @@
       <tbody>
         <tr>
           <td>Spending:</td> 
-          <td>Year: $<%= count_year_spend %></td>
+          <td>Last Year: $<%= count_year_spend %></td>
           <td>Last Month: $<%= count_month_spend %></td>
-          <td>Showed Period: $<%= count_showed_spend %></td>
+          <td class="showed_periond">Showed Period: $<b><%= count_showed_spend %></b></td>
         </tr>
       </tbody>
     </table>
-    <div class="text-right"><%= will_paginate @invoices, class: "btn btn-info btn-sm"%></div>
+    <div class="text-right"><%= will_paginate @invoices, class: "btn btn-info text-dark btn-sm color-black"%></div>
   </div>
 </div>

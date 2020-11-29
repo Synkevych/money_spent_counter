@@ -1,0 +1,20 @@
+<tr>
+  <td>
+    <b><%= get_row_number(@current_page, i) %><b>
+  </td> 
+  <td>
+    <b><%= link_to invoice.title,
+           invoice,
+           title: "Click to show more information" %>
+    <b>
+  </td>
+  <td><%= invoice.description %></td>
+  <td><%= invoice.category %></td>
+  <td>$<%= invoice.amount.round %></td>
+  <td><%= invoice.created_at.strftime("%B %d, %Y") %></td>
+  <td><%= link_to 'Remove',
+          invoice,
+          method: :delete,
+          data: { confirm: 'Are you sure?' } %>
+  </td>
+</tr>

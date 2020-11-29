@@ -18,3 +18,15 @@
 #toast-container{
   top: 4em;
 }
+
+.text-right > .btn > a {
+  color: #f8f9fa;
+}
+
+#invoices_table .sorting_desc::after {
+  content: " ⬇";
+  color: #189200
+}
+#invoices_table .sorting_asc::after {
+  content: " ⬆";
+}

@@ -1,11 +1,13 @@
 class InvoicesController < ApplicationController
   before_action :set_invoice!, only: [:show, :edit, :update, :destroy]
+  helper_method :sort_column, :sort_direction, :sort_filter
   
   # GET /invoices/
   def index
     @invoices = Invoice.all
-      .order('created_at DESC')
-      .paginate(page: params[:page])
+                       .available_for(current_user)
+                       .order(sort_column + ' ' + sort_direction)
+    paginate_invoices
   end
 
   # GET /invoices/1
@@ -66,4 +68,25 @@ class InvoicesController < ApplicationController
     def invoice_params
       params.require(:invoice).permit(:title, :description, :category, :amount, :user_id)
     end
+
+    def sort_column
+      params[:sort] || 'created_at'
+    end
+    
+    def sort_direction
+      params[:direction] || 'desc'
+    end
+    
+    def sort_filter
+      params[:filter] || 'saved'
+    end
+
+    protected     
+
+    def paginate_invoices
+      @invoices = @invoices.paginate(page: params[:page])
+      @current_page = @invoices.current_page
+      @total_pages = @invoices.total_pages
+    end
+    
 end
