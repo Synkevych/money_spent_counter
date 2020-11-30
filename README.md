@@ -24,10 +24,17 @@ Test task to check basic knowledge of Ruby. Here implemented, registration based
 
 In the application you can:
 
-* Register to app or login
-* Create new invoice with title, description, category and amount
-* Show all user invoices paginated by 10 pear page and sorting option
+* Register to app or login  
+<img alt="login page" src="public/login.png" size="50%">
+
+* Create new invoice with title, description, category and amount  
+<img alt="create new" src="public/create.png" size="50%">
+
+* Show all user invoices paginated by 10 pear page and sorting option  
+<img alt="index page" src="public/index.png" size="50%">
+
 * Ability to copy invoice link and send them to another user
+<img alt="show not registred" src="public/show.png" size="50%">
 
 ## Getting started
 
@@ -70,7 +77,7 @@ And now you can visit the site with the URL http://localhost:3000
 
 ##### 4. Running specs tests
 
-You can run all tests using the command given below.
+You can run all **60 tests**(coverage 88.17%) using the command given below.
 
 ```bash
 $ rails generate rspec:install  # first setup rspec gem
