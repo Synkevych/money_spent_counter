@@ -36,6 +36,9 @@ In the application you can:
 * Ability to copy invoice link and send them to another user
 <img alt="show not registred" src="public/show.png" size="50%">
 
+* Handle all errors like not found to default 404 page
+<img alt="404 not found" src="public/404_not_found.png" size="50%">
+
 ## Getting started
 
 ##### Prerequisites

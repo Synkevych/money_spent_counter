@@ -2,6 +2,8 @@ class ApplicationController < ActionController::Base
   before_action :authenticate_user!
   skip_before_action :authenticate_user!, :only => [:invoices,:show]
   
+  rescue_from ActiveRecord::RecordNotFound, :with => :render_404
+  
   unless Rails.application.config.consider_all_requests_local
     rescue_from ActionController::RoutingError, with: -> { render_404  }
   end
