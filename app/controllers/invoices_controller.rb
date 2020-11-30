@@ -31,8 +31,8 @@ class InvoicesController < ApplicationController
       flash[:success] = 'Invoice was successfully created.'
       redirect_to invoice_path(@invoice), status: 302
     else
-      flash[:error] = @invoice.errors.full_messages.join("\n")
-      render :new, status: 422
+      flash[:error] = @invoice.errors.full_messages.join(". ")
+      render :error, status: 422
     end
   end
 
@@ -42,8 +42,8 @@ class InvoicesController < ApplicationController
       flash[:success] = 'Invoice was successfully updated.'
       redirect_to invoice_path(@invoice), status: 302
     else
-      flash[:error] = @invoice.errors.full_messages.join("\n")
-      render :edit, status: 422
+      flash[:error] = @invoice.errors.full_messages.join(". ")
+      render :error, status: 422
     end
   end
 
