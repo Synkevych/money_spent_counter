@@ -20,21 +20,22 @@ Test task to check basic knowledge of Ruby. Here implemented, registration based
   <br>
   <img alt="Index page" src="public/index.png">
 </p>
+
 ## Features
 
 In the application you can:
 
 * Register to app or login  
-<img alt="login page" src="public/login.png" size="50%">
+<img alt="login page" src="public/login.png"  width="400">
 
 * Create new invoice with title, description, category and amount  
-<img alt="create new" src="public/create.png" size="50%">
+<img alt="create new" src="public/create.png"  width="300">
 
 * Show all user invoices paginated by 10 pear page and sorting option  
-<img alt="index page" src="public/index.png" size="50%">
+<img alt="index page" src="public/index.png"  width="600">
 
 * Ability to copy invoice link and send them to another user
-<img alt="show not registred" src="public/show.png" size="50%">
+<img alt="show not registred" src="public/show.png"  width="400">
 
 * Handle all errors like not found to default 404 page
 <img alt="404 not found" src="public/404_not_found.png" size="50%">
