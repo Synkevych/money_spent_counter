@@ -36,9 +36,6 @@ gem 'will_paginate', '~> 3.1.0'
 
 gem 'bootstrap', '~> 4.3.1'
 
-# jQuery for materialize-sass UI plagin
-gem 'jquery-rails', '~> 4.4'
-
 # Flexible authentication solution for Rails with Warden.
 gem 'devise', '~> 4.7', '>= 4.7.2'
 
