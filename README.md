@@ -16,9 +16,9 @@ Test task to check basic knowledge of Ruby. Here implemented, registration based
 ## Introduction
 
 <p align="center">
-  Money Spent Counter a minimal expenses tracking application using Ruby on Rails framework.
+  Money Spent Counter a minimal expenses tracking application using Ruby on Rails framework. Deployed to Heroku and available [online](https://money-spent-counter.herokuapp.com/).
   <br>
-  <img alt="Index page" src="public/demo.gif">
+  <img alt="Index page" src="public/demo.gif" width="840">
 </p>
 
 ## Features
@@ -38,7 +38,7 @@ In the application you can:
 <img alt="show not registred" src="public/show.png"  width="400">
 
 * Handle all errors like not found to default 404 page
-<img alt="404 not found" src="public/404_not_found.png" size="50%">
+<img alt="404 not found" src="public/404_not_found.png" width="400">
 
 ## Getting started
 
@@ -60,7 +60,7 @@ cd money_spent_counter
 
 ##### 2. Create and setup the database, bundle and yarn
 
-Run the following commands to create and setup the database.
+Run the following commands to create and setup the database, and application libraries.
 
 ```ruby
 rails db:create
@@ -98,10 +98,10 @@ $ rspec
 $ rspec spec/models
 
 # Run a single spec file
-$ rspec spec/controllers/accounts_controller_spec.rb
+$ rspec spec/requests/invoices_request_spec.rb
 
 # Run a single example from a spec file (by line number)
-$ rspec spec/controllers/accounts_controller_spec.rb:8
+$ rspec spec/requests/invoices_request_spec.rb:43
 
 # See all options for running specs
 $ rspec --help
