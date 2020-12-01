@@ -58,7 +58,7 @@ git clone https://github.com/Synkevych/money_spent_counter.git
 cd money_spent_counter
 ```
 
-##### 2. Create and setup the database
+##### 2. Create and setup the database, bundle and yarn
 
 Run the following commands to create and setup the database.
 
@@ -67,6 +67,10 @@ rails db:create
 rails db:setup
 rails db:migrate
 rails db:seed # for create some default data
+
+bundle install
+
+yarn install
 ```
 
 ##### 3. Start the Rails server
