@@ -18,7 +18,7 @@ Test task to check basic knowledge of Ruby. Here implemented, registration based
 <p align="center">
   Money Spent Counter a minimal expenses tracking application using Ruby on Rails framework.
   <br>
-  <img alt="Index page" src="public/index.png">
+  <img alt="Index page" src="public/demo.gif">
 </p>
 
 ## Features
