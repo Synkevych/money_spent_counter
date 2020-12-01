@@ -16,7 +16,7 @@ Test task to check basic knowledge of Ruby. Here implemented, registration based
 ## Introduction
 
 <p align="center">
-  Money Spent Counter a minimal expenses tracking application using Ruby on Rails framework. Deployed to Heroku and available [online](https://money-spent-counter.herokuapp.com/).
+  Money Spent Counter a minimal expenses tracking application using Ruby on Rails framework. Deployed to Heroku and available [online](https://money-spent-counter.herokuapp.com).
   <br>
   <img alt="Index page" src="public/demo.gif" width="840">
 </p>
@@ -26,19 +26,10 @@ Test task to check basic knowledge of Ruby. Here implemented, registration based
 In the application you can:
 
 * Register to app or login  
-<img alt="login page" src="public/login.png"  width="400">
-
 * Create new invoice with title, description, category and amount  
-<img alt="create new" src="public/create.png"  width="300">
-
 * Show all user invoices paginated by 10 pear page and sorting option  
-<img alt="index page" src="public/index.png"  width="600">
-
 * Ability to copy invoice link and send them to another user
-<img alt="show not registred" src="public/show.png"  width="400">
-
 * Handle all errors like not found to default 404 page
-<img alt="404 not found" src="public/404_not_found.png" width="400">
 
 ## Getting started
 
@@ -115,7 +106,8 @@ $ rails g rspec:model user # generate new test for model
 
 `heroku login` - login to your profile  
 `heroku create money-spent-counter` - create new heroku app with specific name  
-`git push heroku master` - push you project to Heroku server  
+`heroku buildpacks:add --index 1 heroku/nodejs` - because of yarn lib you need use Multiple Buildpacks
+`git push heroku main` - push you project to Heroku server  
 `heroku run rake db:migrate` - run migration on Heroku server  
 `heroku pg:reset` - drop database on Heroku server  
 `heroku open` - open and test your website  
