@@ -4,11 +4,9 @@ class InvoicesController < ApplicationController
   
   # GET /invoices/
   def index
-    all_invoices = Invoice.all.available_for(current_user)
-    @invoices = all_invoices.order(sort_column + ' ' + sort_direction)
+    @current_user_invoices = Invoice.all.available_for(current_user)
+    @invoices = @current_user_invoices.order(sort_column + ' ' + sort_direction)
     paginate_invoices
-    
-    @invoices_for_year = all_invoices.invoices_for_year
   end
 
   # GET /invoices/1
