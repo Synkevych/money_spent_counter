@@ -13,15 +13,17 @@ module InvoicesHelper
   end
 
   def count_month_spend
-    @invoices_for_year.this_month.reduce(0) { | sum, invoice | sum + invoice.amount }
+    @current_user_invoices.invoices_for_year
+                          .current_month
+                          .sum(:amount)
   end
   
   def count_showed_spend
-    @invoices.reduce(0) { | sum, invoice | sum + invoice.amount }
+    @invoices.sum(:amount)
   end
   
   def count_year_spend
-    @invoices_for_year.reduce(0) { | sum, invoice | sum + invoice.amount }
+    @current_user_invoices.invoices_for_year.sum(:amount)
   end
 
 end
