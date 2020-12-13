@@ -19,7 +19,7 @@ module InvoicesHelper
   end
   
   def count_showed_spend
-    @invoices.sum(:amount)
+    @invoices.reduce(0) { | sum, invoice | sum + invoice.amount }
   end
   
   def count_year_spend
