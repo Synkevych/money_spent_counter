@@ -15,11 +15,8 @@ Test task to check basic knowledge of Ruby. Here implemented, registration based
 
 ## Introduction
 
-<p align="center">
-  Money Spent Counter a minimal expenses tracking application using Ruby on Rails framework. Deployed to Heroku and available [online](https://money-spent-counter.herokuapp.com).
-  <br>
-  <img alt="Index page" src="public/demo.gif" width="840">
-</p>
+Money Spent Counter a minimal expenses tracking application using Ruby on Rails framework. Deployed to Heroku and available [online](https://money-spent-counter.herokuapp.com/).
+<img alt="Index page" src="public/demo.gif" width="840">
 
 ## Features
 
@@ -114,4 +111,4 @@ $ rails g rspec:model user # generate new test for model
 
 ## Feedback
 
-Feel free to send us feedback on [Twitter](https://twitter.com/synkevych) or [file an issue](https://github.com/Synkevych/money_spent_counter/commits/issues/new). Feature requests are always welcome.
+Feel free to send me feedback on [Twitter](https://twitter.com/synkevych) or [file an issue](https://github.com/Synkevych/money_spent_counter/commits/issues/new). Feature requests are always welcome.
