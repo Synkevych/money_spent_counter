@@ -4,7 +4,6 @@
 
 .footer{
   display: block;
-  position: absolute;
   bottom: 0;
   width: 100%;
   line-height: 2em;
@@ -16,6 +15,10 @@
   };
 }
 
+main.container {
+  min-height: 100%;
+  padding-bottom: 20px;
+}
 #toast-container{
   top: 4em;
 }
@@ -30,4 +33,8 @@
 }
 #invoices_table .sorting_asc::after {
   content: " ⬆";
+}
+
+.cursor-info {
+  cursor: context-menu;
 }

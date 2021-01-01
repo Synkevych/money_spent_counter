@@ -9,7 +9,7 @@ module InvoicesHelper
   end
 
   def default_title
-    Time.now.strftime("%A %d %Y") + " shopping"
+    Time.now.strftime("%A") + " shopping"
   end
 
   def count_month_spend
@@ -17,13 +17,17 @@ module InvoicesHelper
                           .current_month
                           .sum(:amount)
   end
-  
+
   def count_showed_spend
     @invoices.reduce(0) { | sum, invoice | sum + invoice.amount }
   end
-  
+
   def count_year_spend
     @current_user_invoices.invoices_for_year.sum(:amount)
+  end
+
+  def short_text(text)
+    truncate(text, length: 20)
   end
 
 end
