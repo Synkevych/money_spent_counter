@@ -8,9 +8,10 @@ class Invoice < ApplicationRecord
 
   belongs_to :user
 
-  validates :title, presence: true, 
-                    length: { in: 1..80 },
+  validates :title, presence: true,
+                    length: { in: 5..25 },
                     uniqueness: true
+  validates :description, length: { minimum: 10 }
   validates :category, presence: true, length: { in: 1..40 }
 
   scope :current_month, -> { where(created_at: Time.now.beginning_of_month..Time.now.end_of_month) }
@@ -22,4 +23,4 @@ class Invoice < ApplicationRecord
   # Set up the number of displayed Checklist items per page
   self.per_page = 10
 
-end 
+end

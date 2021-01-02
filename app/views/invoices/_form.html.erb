@@ -1,28 +1,32 @@
 <%= form_with(model: @invoice, remote: true, class: "new-article-form") do |form| %>
-  <% if user_signed_in? %>
-    <%= form.hidden_field :user_id, required: true, value: current_user.id, class: "form-control"%>
-    <% end %>
-  <div class="card-body">
-    <%= form.label :title %>
-    <%= form.text_field :title, placeholder: default_title, class: "form-control" %>
-  </div>
-  <div class="card-body">
-    <%= form.label :description %>
-    <%= form.text_area :description, class: "form-control" %>
-  </div>
-  <div  class="card-body">
-    <%= form.label :category %><br>
-    <%= form.select :category, options_for_select(Invoice::DEFAULT_CATEGORY, form.object.category),
+<% if user_signed_in? %>
+<%= form.hidden_field :user_id, required: true, value: current_user.id, class: "form-control"%>
+<% end %>
+<div class="card-body">
+  <%= form.label :title %>
+  <%= form.text_field :title, placeholder: default_title, class: "form-control" %>
+</div>
+<div class="card-body">
+  <%= form.label :description %>
+  <%= form.text_area :description, class: "form-control" %>
+</div>
+<div class="card-body">
+  <%= form.label :category %><br>
+  <%= form.select :category, options_for_select(Invoice::DEFAULT_CATEGORY, form.object.category),
         {include_blank: true},
-        required: true, class: 'custom-select' %>
-  </div>
-  <div class="card-body">
-    <%= form.label :amount %> $
-    <%= form.text_field :amount, class: "form-control", required: true %>
-  </div>
-  <div class="card-body">
-    <%= submit_tag 'Submit', class: 'btn btn-primary' %>
-    <%= link_to  "Close", invoices_path,  class: "btn btn-secondary" %>
-  </div>
-  <% end %>
+        required: true, class: "custom-select" %>
+</div>
+<div class="card-body">
+  <%= form.label :amount %> $
+  <%= form.text_field :amount, class: "form-control", required: true %>
+</div>
+<div class="card-body">
+  <%= form.label :spent_in %>
+  <%= form.datetime_select :created_at, class: "form-control", type: "date" %>
+</div>
+<div class="card-body">
+  <%= submit_tag "✉️ Submit", class: 'btn btn-primary' %>
+  <%= link_to  "❌ Cancel", invoices_path,  title: 'Click to remove', class: "btn btn-secondary" %>
+</div>
+<% end %>
 </div>

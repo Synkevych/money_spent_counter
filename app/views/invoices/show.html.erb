@@ -8,32 +8,35 @@
 
   <div class="card-body">
     <p class="card-text">
-        Title:  <b><%= @invoice.title %></b>
+      Title: <b><%= @invoice.title %></b>
     </p>
     <p class="card-text">
-        Description:  <b><%= @invoice.description %></b>
+      Description: <b><%= @invoice.description %></b>
     </p>
     <p class="card-text">
-        Category:  <b><%= @invoice.category %></b>
+      Category: <b><%= @invoice.category %></b>
     </p>
     <p class="card-text">
-        Amount: $ <b><%= @invoice.amount %></b>
+      Amount: $ <b><%= @invoice.amount %></b>
+    </p>
+    <p class="card-text">
+      Spendet in: <b><%= @invoice.created_at %></b>
     </p>
   </div>
 
   <p class="mx-auto">
     <% user_id = !user_signed_in? || current_user.id; if @invoice.user_id == user_id then %>
-    <button class="btn btn-success btn-sm" onclick="copyToClipboard()">Copy link</button>
-    <%= link_to  "Delete", invoice_path(@invoice),
+    <button class="btn btn-success btn-sm" onclick="copyToClipboard()">🔗 Copy link</button>
+    <%= link_to  "🗑️ Delete", invoice_path(@invoice),
                 method: :delete,
                 data: { confirm: 'Are you sure?'},
               class: "btn btn-danger btn-sm" %>
-    <%= link_to "Edit", edit_invoice_path(@invoice), class: "btn btn-info btn-sm" %>
+    <%= link_to "✏️ Edit", edit_invoice_path(@invoice), class: "btn btn-info btn-sm" %>
     <%= link_to "All invoices", invoices_path, class: "btn btn-secondary btn-sm" %>
   </p>
   <% else %>
-  <div class="card-footer text-center mb-2">Created by user: 
-      <b><%= @invoice.user.email[/[^@]+/]%></b>
+  <div class="card-footer text-center mb-2">Created by user:
+    <b><%= @invoice.user.email[/[^@]+/]%></b>
   </div>
   <% end %>
 </div>

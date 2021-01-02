@@ -53,7 +53,7 @@ class InvoicesController < ApplicationController
       flash[:success] = 'Invoice was successfully destroyed.'
     end
   end
-  
+
   def error
   end
 
@@ -65,27 +65,27 @@ class InvoicesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def invoice_params
-      params.require(:invoice).permit(:title, :description, :category, :amount, :user_id)
+      params.require(:invoice).permit(:title, :description, :category, :amount, :user_id, :created_at)
     end
 
     def sort_column
       params[:sort] || 'created_at'
     end
-    
+
     def sort_direction
       params[:direction] || 'desc'
     end
-    
+
     def sort_filter
       params[:filter] || 'saved'
     end
 
-    protected     
+    protected
 
     def paginate_invoices
       @invoices = @invoices.paginate(page: params[:page])
       @current_page = @invoices.current_page
       @total_pages = @invoices.total_pages
     end
-    
+
 end

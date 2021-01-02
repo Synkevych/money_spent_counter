@@ -1,8 +1,8 @@
 <div class="card mt-4 mx-auto">
   <div class="card-body mb-10">
-    <h3 class="card-title text-center">You're Invoices</h3>
+    <h3 class="card-title text-center">You're last <%= @invoices.size > 10 ? 10 : @invoices.size %> Invoices</h3>
     <div class="text-right">
-      <a class="btn btn-success" href="<%= new_invoice_path %>">Add new</a>
+      <a class="btn btn-success" href="<%= new_invoice_path %>">➕ Add new</a>
     </div>
     <table class="table mt-4" id="invoices_table">
       <thead>
@@ -18,14 +18,14 @@
       </thead>
       <tbody id="invoices">
         <% @invoices.each_with_index do | invoice, i | %>
-            <%= render partial: "invoice_for_index", locals: {invoice: invoice, i: i} %>
+        <%= render partial: "invoice_for_index", locals: {invoice: invoice, i: i} %>
         <% end %>
       </tbody>
     </table>
     <table class="table" id="spending">
       <tbody>
         <tr>
-          <td>Spending:</td> 
+          <td>Spending:</td>
           <td>Last Year: $<%= count_year_spend %></td>
           <td>Last Month: $<%= count_month_spend %></td>
           <td class="showed_periond">Showed Period: $<b><%= count_showed_spend %></b></td>

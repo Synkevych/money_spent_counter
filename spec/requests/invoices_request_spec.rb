@@ -1,9 +1,9 @@
 require 'rails_helper'
 
 RSpec.describe "Invoices", type: :request do
-  
+
   let(:current_user) { create(:user) }
- 
+
   let!(:user) { current_user }
   let(:referer) { 'http://example.com/test' }
 
@@ -22,7 +22,7 @@ RSpec.describe "Invoices", type: :request do
       request.headers["HTTP_REFERER"] = "http://exapmpe.com/test"
       subject
     end
-    it "shows not authorized flashes" do 
+    it "shows not authorized flashes" do
       expect(flash[:error]).to include("You are not authorized")
     end
 
@@ -30,13 +30,13 @@ RSpec.describe "Invoices", type: :request do
     it { expect(response.status).to eq(302) }
   end
 
-# Index 
+# Index
 
   describe "GET #index" do
     subject { get root_path }
 
     context "user doesn't exist" do
-      before(:each) do 
+      before(:each) do
         sign_out user
         subject
       end
@@ -54,7 +54,7 @@ RSpec.describe "Invoices", type: :request do
     end
   end
 
-# Pagination Index 
+# Pagination Index
 
   describe "GET #index pagination test" do
     let!(:invoices) { create_list(:invoice, 15, user: current_user) }
@@ -96,28 +96,32 @@ RSpec.describe "Invoices", type: :request do
     end
   end
 
-
 # Create
-  
+
   describe "POST #create" do
-    let(:invoice_params) do 
-       { title: 'Short title about shoping', description: 'Some description', category: 'Other', amount: 100, user_id: current_user }
+    let(:invoice_params) do
+       { title: 'Saturday taxi',
+         description: 'From friends to home',
+         category: 'Other',
+         amount: 100,
+         user_id: current_user,
+         created_at: Time.now }
     end
-    
+
     subject { post invoices_path(invoice: invoice_params) }
-    
+
     context "not authorized user" do
-      before(:each) do 
+      before(:each) do
         sign_out current_user
         subject
       end
-      
+
       it "has status unauthorized" do
         expect(response.status).to eq(302)
         expect(response.body).to redirect_to(new_user_session_path)
       end
     end
-    
+
     context 'correct params are passed' do
       it 'has successful status' do
         subject
@@ -130,16 +134,16 @@ RSpec.describe "Invoices", type: :request do
       end
 
       it 'adds new object to db' do
-        expect{subject}.to change(Invoice, :count).by(1)  
+        expect{subject}.to change(Invoice, :count).by(1)
       end
       it "renders new template" do
         subject
         expect(response.status).to redirect_to(invoice_path(Invoice.last))
       end
     end
-    
+
     context 'incorrect params are passed' do
-      let!(:invoice_params) do 
+      let(:invoice_params) do
        { title: '', description: 'Buy some apples', category: 'Other' }
       end
       it 'has unprocessable status' do
@@ -153,7 +157,7 @@ RSpec.describe "Invoices", type: :request do
       end
 
       it 'not adds new object to db' do
-        expect{subject}.to change(Invoice, :count).by(0)  
+        expect{subject}.to change(Invoice, :count).by(0)
       end
     end
   end
@@ -188,8 +192,8 @@ RSpec.describe "Invoices", type: :request do
     subject { delete invoice_path(invoice) }
 
     let!(:invoice) { create(:invoice, user: current_user) }
-    
-    context 'correct params are passed' do  
+
+    context 'correct params are passed' do
       it 'has successful status' do
         subject
         expect(response.status).to eq(302)
