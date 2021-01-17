@@ -22,11 +22,11 @@
 </div>
 <div class="card-body">
   <%= form.label :spent_in %>
-  <%= form.datetime_select :created_at, class: "form-control", type: "date" %>
+  <%= form.text_field :created_at, class: "form-control", type: "date" %>
 </div>
 <div class="card-body">
-  <%= submit_tag "✉️ Submit", class: 'btn btn-primary' %>
-  <%= link_to  "❌ Cancel", invoices_path,  title: 'Click to remove', class: "btn btn-secondary" %>
+  <%= submit_tag "✉️ Submit", class: "btn btn-primary" %>
+  <%= link_to  "Cancel", invoices_path,  title: 'Click to remove', class: "btn btn-secondary cancel-icon" %>
 </div>
 <% end %>
 </div>

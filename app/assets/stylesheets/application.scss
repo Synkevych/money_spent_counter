@@ -30,6 +30,10 @@ main.container {
   top: 4em;
 }
 
+.new-article-form .card-body {
+  padding: 0.5em 1em;
+}
+
 .text-right > .btn > a {
   color: #f8f9fa;
 }
@@ -46,6 +50,26 @@ main.container {
   cursor: context-menu;
 }
 
+.btn {
+  &.edit-icon::before {
+    content: "✏️";
+    display: inline-block;
+    transform: rotate(90deg);
+    -moz-transform: rotate(90deg);
+    -webkit-transform: rotate(90deg);
+  }
+
+  &.logout-user-icon::before {
+    content: "⏏️  ";
+  }
+
+  &.submit-icon::before {
+    content: "✉️ ";
+  }
+  &.add-new-icon::before {
+    content: "➕ ";
+  }
+}
 // @keyframes heartbeat {
 //   0% {
 //     font-size: .75em;
