@@ -2,6 +2,10 @@
 @import "toastr/toastr";
 @import "errors";
 
+html,body{
+  height: 100%;
+}
+
 .footer{
   display: block;
   bottom: 0;
@@ -16,9 +20,12 @@
 }
 
 main.container {
-  min-height: 100%;
   padding-bottom: 20px;
+  height: -moz-calc(100% - 9.4em);
+  height: -webkit-calc(100% - 9.4em);
+  height: calc(100% - 9.4em);
 }
+
 #toast-container{
   top: 4em;
 }
@@ -38,3 +45,28 @@ main.container {
 .cursor-info {
   cursor: context-menu;
 }
+
+// @keyframes heartbeat {
+//   0% {
+//     font-size: .75em;
+//   }
+//   20% {
+//     font-size: 1em;
+//   }
+//   40% {
+//     font-size: .75em;
+//   }
+//   60% {
+//     font-size: 1em;
+//   }
+//   80% {
+//     font-size: .75em;
+//   }
+//   100% {
+//     font-size: .75em;
+//   }
+// }
+
+// span.heart-icon{
+//   animation: heartbeat 1s infinite;
+// }

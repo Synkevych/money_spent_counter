@@ -30,4 +30,9 @@ module InvoicesHelper
     truncate(text, length: 20)
   end
 
+  def category_style(category)
+    emoji = Invoice::DEFAULT_EMOJI_FOR_CATEGORY[Invoice::DEFAULT_CATEGORY.index(category)]
+    "<span class=text-muted'> #{emoji} </span>#{category}".html_safe
+  end
+
 end
