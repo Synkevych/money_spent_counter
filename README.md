@@ -1,5 +1,4 @@
-<h1 align="center"> Money Spent Counter </h1> <br>
-<br/>
+<h1 align="center"> Money Spent Counter </h1>
 <p align="center">
 Test task to check basic knowledge of Ruby. Here implemented, registration based on Device, sorting by column name, basic Bootstrap style and tests on RSpec.
 </p>
