@@ -11,7 +11,7 @@
   <td title="<%= invoice.description %>" class="cursor-info">
     <%= short_text(invoice.description) %>
   </td>
-  <td><%= invoice.category %></td>
+  <td><%= category_style(invoice.category) %> </td>
   <td>$<%= invoice.amount.round %></td>
   <td><%= invoice.created_at.strftime("%B %d, %Y") %></td>
   <td><%= link_to "🗑️",

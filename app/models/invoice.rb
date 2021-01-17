@@ -5,6 +5,7 @@ class Invoice < ApplicationRecord
                       'Cafes',
                       'Shops',
                       'Other']
+  DEFAULT_EMOJI_FOR_CATEGORY = ['🌇', '👚', '🚕', '☕', '🛒']
 
   belongs_to :user
 

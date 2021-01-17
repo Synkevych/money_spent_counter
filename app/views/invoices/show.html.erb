@@ -14,7 +14,7 @@
       Description: <b><%= @invoice.description %></b>
     </p>
     <p class="card-text">
-      Category: <b><%= @invoice.category %></b>
+      Category: <b><%= category_style(@invoice.category) %></b>
     </p>
     <p class="card-text">
       Amount: $ <b><%= @invoice.amount %></b>
