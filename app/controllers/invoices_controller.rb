@@ -1,7 +1,7 @@
 class InvoicesController < ApplicationController
   before_action :set_invoice!, only: [:show, :edit, :update, :destroy]
   helper_method :sort_column, :sort_direction, :sort_filter
-  
+
   # GET /invoices/
   def index
     @current_user_invoices = Invoice.all.available_for(current_user)
