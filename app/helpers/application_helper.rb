@@ -4,7 +4,7 @@ module ApplicationHelper
     if page >= 1
       ( page * 10 - 10 ) + i
     else
-      page *   i
+      page * i
     end
   end
 end

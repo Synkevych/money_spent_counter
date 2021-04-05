@@ -16,6 +16,11 @@ class InvoicesController < ApplicationController
   # GET /invoices/new
   def new
     @invoice = Invoice.new
+
+    respond_to do |format|
+      format.html
+      format.js
+    end
   end
 
   # GET /invoices/1/edit
