@@ -22,7 +22,11 @@
 </div>
 <div class="card-body">
   <%= form.label :spent_in %>
-  <%= form.text_field :created_at, class: "form-control", type: "date" %>
+  <%= form.text_field :created_at, class: "form-control", type: "datetime" %>
+</div>
+<div class="card-body">
+  <%= form.label :public %>
+  <%= form.check_box :public,  checked: @invoice.public? || form.object.public?, class: "form-control" %>
 </div>
 <div class="card-body">
   <%= submit_tag "✉️ Submit", class: "btn btn-primary" %>

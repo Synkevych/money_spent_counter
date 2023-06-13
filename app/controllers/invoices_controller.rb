@@ -65,7 +65,7 @@ class InvoicesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def invoice_params
-      params.require(:invoice).permit(:title, :description, :category, :amount, :user_id, :created_at)
+      params.require(:invoice).permit(:title, :description, :category, :amount, :user_id, :created_at, :public)
     end
 
     def sort_column
