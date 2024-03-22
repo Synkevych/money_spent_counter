@@ -1,0 +1,21 @@
+services:
+  db:
+    image: postgres
+    volumes:
+      - ./tmp/db:/var/lib/postgresql/data
+    environment:
+      POSTGRES_USER: user_name
+      POSTGRES_PASSWORD: user_password
+      POSTGRES_DB: database_name
+    ports:
+      - "5432:5432"
+  web:
+    # image: synkevych/money_spent_counter:0.0.2
+    build: .
+    command: bash -c "rm -f tmp/pids/server.pid && bundle exec rails s -p 3000 -b '0.0.0.0'"
+    volumes:
+      - .:/myapp
+    ports:
+      - "3000:3000"
+    depends_on:
+      - db

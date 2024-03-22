@@ -45,6 +45,13 @@ git clone https://github.com/Synkevych/money_spent_counter.git
 cd money_spent_counter
 ```
 
+##### Using Docker
+```
+docker compose up
+docker compose run web rake db:create db:migrate db:seed
+```
+
+
 ##### 2. Create and setup the database, bundle and yarn
 
 Run the following commands to create and setup the database, and application libraries.
