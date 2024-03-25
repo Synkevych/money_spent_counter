@@ -1,0 +1,44 @@
+<%# app/views/pages/about.html.erb %>
+
+<%= content_for :title, "About" %>
+
+<div class="container mt-5">
+  <div class="row">
+    <div class="col-md-8 offset-md-2">
+      <h1 class="text-center mb-4">About the Project</h1>
+      <p>
+        This is a basic web application built using the Ruby on Rails framework. 
+        The purpose of this project is to demonstrate a simple web application structure 
+        and to serve as a learning resource for anyone interested in Ruby on Rails development. 
+        <b class="bg-danger p-1 text-white">For your protection, please avoid sharing any private information, including your real name, username, or password, on this site.</b>
+      </p>
+
+      <h2 class="mt-4">Features</h2>
+      <ul>
+        <li>Home Page: Displays a welcome message and links to various sections of the website.</li>
+        <li>Invoices Page: Provides information about the Invoices and has ability to add, edit delete them.</li>
+        <li>User Management: Basic user authentication and management features (login, logout, registration).</li>
+      </ul>
+
+      <h2 class="mt-4">Technologies Used</h2>
+      <ul>
+        <li>Ruby on Rails: Web application framework</li>
+        <li>PostgreSQL: Relational database management system</li>
+        <li>Docker Compose: Container orchestration tool for development environment</li>
+      </ul>
+
+      <h2 class="mt-4">Database Configuration</h2>
+      <p>
+        The project uses PostgreSQL as the database.
+        The database configuration is specified in the <code>docker-compose.yml</code> file,
+        which can be found in the project root directory.
+      </p>
+
+      <h2 class="mt-4">Disclaimer</h2>
+      <p>
+        This website is for test purposes only. 
+        It is not intended for production use and should not be used to store sensitive or critical data.
+      </p>
+    </div>
+  </div>
+</div>

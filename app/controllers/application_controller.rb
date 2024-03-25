@@ -1,6 +1,7 @@
 class ApplicationController < ActionController::Base
   before_action :authenticate_user!
-  skip_before_action :authenticate_user!, :only => [:invoices,:show]
+  skip_before_action :authenticate_user!, only: [:invoices,:show]
+  skip_before_action :authenticate_user!, only: [:home,:index]
   
   rescue_from ActiveRecord::RecordNotFound, :with => :render_404
   
