@@ -1,14 +1,4 @@
 services:
-  db:
-    image: postgres
-    volumes:
-      - ./tmp/db:/var/lib/postgresql/data
-    environment:
-      POSTGRES_USER: user_name
-      POSTGRES_PASSWORD: user_password
-      POSTGRES_DB: database_name
-    ports:
-      - "5432:5432"
   web:
     # image: synkevych/money_spent_counter:0.0.2
     build: .
@@ -18,4 +8,18 @@ services:
     ports:
       - "3000:3000"
     depends_on:
-      - db
+      db:
+        condition: service_healthy
+  db:
+      image: postgres
+      restart: always
+      volumes:
+        - ./tmp/db:/var/lib/postgresql/data
+      environment:
+        POSTGRES_USER: postgres
+        POSTGRES_PASSWORD: postgres
+      healthcheck:
+        test: ["CMD-SHELL", "pg_isready -U postgres"]
+        interval: 10s
+        timeout: 5s
+        retries: 3
